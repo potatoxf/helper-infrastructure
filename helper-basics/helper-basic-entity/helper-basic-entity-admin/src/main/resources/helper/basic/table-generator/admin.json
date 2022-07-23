@@ -1,0 +1,20 @@
+{
+  "author": "potatoxf",
+  "tablePrefixes": [
+    "hba_"
+  ],
+  "tables": [
+    "hba_account",
+    "hba_account_info",
+    "hba_account_organization"
+  ],
+  "isStringPrimaryKey": false,
+  "packageForRoot": "",
+  "packageForModule": "",
+  "packageForEntity": "potatoxf.helper.basic.entity.admin",
+  "packageForXml": "potatoxf.helper.basic.dao.admin",
+  "packageForMapper": "potatoxf.helper.basic.dao.admin",
+  "packageForService": "potatoxf.helper.basic.logic.admin",
+  "packageForServiceImpl": "potatoxf.helper.basic.logic.admin",
+  "packageForController": "potatoxf.helper.basic.rest.admin"
+}

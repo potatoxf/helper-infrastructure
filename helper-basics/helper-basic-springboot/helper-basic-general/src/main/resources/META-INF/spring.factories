@@ -1,0 +1,5 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+potatoxf.helper.basic.general.LocalSettingConfiguration,\
+potatoxf.helper.basic.general.global.GlobalConfiguration,\
+potatoxf.helper.basic.general.global.GlobalProperties,\
+potatoxf.helper.basic.general.GeneralProperties

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <!-- 引入 css -->
+    <link href="https://unpkg.com/@wangeditor/editor@latest/dist/css/style.css" rel="stylesheet">
+
+    <!-- 引入 js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://unpkg.com/@wangeditor/editor@latest/dist/index.js"></script>
+    <script>
+        var E = window.wangEditor; // 全局变量
+
+    </script>
+</head>
+<body>
+<button onclick="finish()">完成编辑</button>
+<div id="toolbar-container"></div>
+<div id="editor-container"></div>
+
+
+<script>
+    // 编辑器配置
+    var editorConfig = {};
+    editorConfig.placeholder = '请输入内容'
+    editorConfig.onChange = (editor) => {
+        // 当编辑器选区、内容变化时，即触发
+        // console.log('content', editor.children)
+        // console.log('html', editor.getHtml())
+    }// 工具栏配置
+    var toolbarConfig = {};
+    const editor = E.createEditor({
+        selector: '#editor-container',
+        config: editorConfig,
+        mode: 'default' // 或 'simple' 参考下文
+    })
+    // 创建工具栏
+    const toolbar = E.createToolbar({
+        editor,
+        selector: '#toolbar-container',
+        config: toolbarConfig,
+        mode: 'default' // 或 'simple' 参考下文
+    })
+
+    function finish() {
+        console.log(editor.children)
+        $.ajax({
+            url: "/doc/template",
+            // contentType: 'application/json; charset=UTF-8',
+            method: 'POST',
+            data: {
+                username: 'fuxiang'
+            },
+            success: function (result) {
+                console.log(result)
+            }
+        });
+    }
+</script>
+</body>
+</html>

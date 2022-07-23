@@ -1,0 +1,6 @@
+{
+  "java.lang.IllegalArgumentException": {
+    "default": "ppp error",
+    "zh_CN": "参数错误"
+  }
+}

@@ -1,0 +1,118 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="20220703-hba_account" author="potatoxf">
+        <createTable tableName="hba_account" remarks="系统人员账户">
+            <column name="gid" type="bigint" remarks="全局唯一ID">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="username" type="varchar(16)" remarks="用户名">
+                <constraints nullable="false"/>
+            </column>
+            <column name="password" type="varchar(256)" remarks="密码">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="varchar(10)" remarks="名称">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fpy" type="varchar(32)" remarks="全拼"/>
+            <column name="spy" type="varchar(10)" remarks="简拼"/>
+            <column name="local" type="varchar(10)" remarks="地区"/>
+            <column name="phone" type="varchar(32)" remarks="手机号码"/>
+            <column name="error" type="tinyint(1)" remarks="错误次数" defaultValueNumeric="0">
+                <constraints nullable="false"/>
+            </column>
+            <column name="lock" type="tinyint(1)" remarks="账户是否锁定" defaultValueBoolean="false">
+                <constraints nullable="false"/>
+            </column>
+            <column name="deleteFlag" type="tinyint(1)" remarks="删除标记" defaultValueBoolean="false">
+                <constraints nullable="false"/>
+            </column>
+            <column name="statusFlag" type="tinyint(1)" remarks="状态标识" defaultValueNumeric="0">
+                <constraints nullable="false"/>
+            </column>
+            <column name="revision" type="int" remarks="乐观锁" defaultValueNumeric="0">
+                <constraints nullable="false"/>
+            </column>
+            <column name="createdBy" type="tinyint(1)" remarks="创建者">
+                <constraints nullable="false"/>
+            </column>
+            <column name="createdTime" type="datetime" remarks="创建时间">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updatedBy" type="varchar(32)" remarks="更新者">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updatedTime" type="datetime" remarks="更新时间">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="20220703-hba_account_info" author="potatoxf">
+        <createTable tableName="hba_account_info" remarks="系统人员信息">
+            <column name="gid" type="bigint" remarks="全局唯一ID">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="aid" type="bigint" remarks="系统人员账户ID"/>
+            <column name="type" type="varchar(32)" remarks="类型"/>
+            <column name="content" type="varchar(256)" remarks="名称"/>
+            <column name="deleteFlag" type="tinyint(1)" remarks="删除标记" defaultValueBoolean="false">
+                <constraints nullable="false"/>
+            </column>
+            <column name="statusFlag" type="tinyint(1)" remarks="状态标识" defaultValueNumeric="0">
+                <constraints nullable="false"/>
+            </column>
+            <column name="revision" type="int" remarks="乐观锁" defaultValueNumeric="0">
+                <constraints nullable="false"/>
+            </column>
+            <column name="createdBy" type="tinyint(1)" remarks="创建者">
+                <constraints nullable="false"/>
+            </column>
+            <column name="createdTime" type="datetime" remarks="创建时间">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updatedBy" type="varchar(32)" remarks="更新者">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updatedTime" type="datetime" remarks="更新时间">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet id="20220703-hba_account_organization" author="potatoxf">
+        <createTable tableName="hba_account_organization" remarks="系统人员组织结构">
+            <column name="gid" type="bigint" remarks="全局唯一ID">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="pid" type="bigint" remarks="全局唯一ID"/>
+            <column name="aid" type="bigint" remarks="系统人员账户ID"/>
+            <column name="name" type="varchar(32)" remarks="组织结构名称"/>
+            <column name="description" type="varchar(256)" remarks="组织结构描述"/>
+            <column name="type" type="tinyint" remarks="类型"/>
+            <column name="deleteFlag" type="tinyint(1)" remarks="删除标记" defaultValueBoolean="false">
+                <constraints nullable="false"/>
+            </column>
+            <column name="statusFlag" type="tinyint(1)" remarks="状态标识" defaultValueNumeric="0">
+                <constraints nullable="false"/>
+            </column>
+            <column name="revision" type="int" remarks="乐观锁" defaultValueNumeric="0">
+                <constraints nullable="false"/>
+            </column>
+            <column name="createdBy" type="tinyint(1)" remarks="创建者">
+                <constraints nullable="false"/>
+            </column>
+            <column name="createdTime" type="datetime" remarks="创建时间">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updatedBy" type="varchar(32)" remarks="更新者">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updatedTime" type="datetime" remarks="更新时间">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
